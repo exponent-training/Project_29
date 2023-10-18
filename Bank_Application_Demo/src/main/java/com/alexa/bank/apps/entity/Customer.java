@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -45,8 +46,8 @@ public class Customer {
     private String fathername;
     private String mothername;
     
-	@OneToMany(cascade = CascadeType.DETACH)
+	@OneToOne(cascade = CascadeType.DETACH)
 	@JoinColumn(name = "c_r_id")
-	private List<Role> role= new ArrayList<Role>();
+	private Role role;
 	
 }
